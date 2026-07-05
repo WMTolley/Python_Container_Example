@@ -59,6 +59,8 @@ Python Dev Container Info (By WMTOLLEY) :
                 What you are reading right now.
             requirements.txt:
                 The libraries the user will need to install.
+            WebDesign-SVG-PythonContainer.svg:
+                SVG icon used to identify project
 
 
     Troubleshooting:
