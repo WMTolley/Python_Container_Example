@@ -1,25 +1,33 @@
-FROM python:3.12-slim
+# Example Production Dockerfile
 
-# # 2. Only install system tools the APP actually needs to run
-# # (Removed git, vim, net-tools, etc.)
-# RUN apt-get update && apt-get install -y \
-#     curl \
-#     && rm -rf /var/lib/apt/lists/*
 
-# # 3. Set the working directory
-# WORKDIR /app
+FROM python:3.12-slim AS builder
 
-# # 4. Copy requirements first (better for caching)
-# COPY requirements.txt .
+WORKDIR /code
 
-# # 5. Install libraries (without the "root" warning issues)
-# RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# # 6. Copy ONLY the source code (don't copy .devcontainer or tests)
-# COPY src/ ./src/
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
 
-# # 7. Set the same path logic you used in dev
-# ENV PYTHONPATH=/app/src
+FROM python:3.12-slim AS runner
 
-# # 8. The command that starts the app automatically
-# CMD ["python", "-m", "src.project.main"]
+WORKDIR /code
+
+RUN useradd -u 8888 appuser && chown -R appuser:appuser /code
+USER appuser
+
+COPY --from=builder --chown=appuser:appuser /root/.local /home/appuser/.local
+ENV PATH=/home/appuser/.local/bin:$PATH
+
+COPY --chown=appuser:appuser src/ ./src/
+COPY --chown=appuser:appuser data/ ./data/
+
+ENV PYTHONPATH=/code/src
+ENV PYTHONUNBUFFERED=1
+
+EXPOSE 8000
+
+CMD ["python", "-m", "src.project.main"]

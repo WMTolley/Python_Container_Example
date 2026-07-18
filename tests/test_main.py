@@ -1,7 +1,7 @@
 import os
 # import pytest
-from project.main import isOdd, firstPrime
-from project.Animals import Cat, Dog
+from project.main import is_odd, first_prime
+from project.animals import Cat, Dog
 
 def test_env_loading():
     """Test if the environment variable is being read correctly."""
@@ -16,10 +16,10 @@ def test_math_logic():
     assert result == 4
 
 def test_isOdd():
-    assert isOdd(3)
+    assert is_odd(3)
 
 def test_firstPrive():
-    assert (firstPrime()==  2);
+    assert (first_prime()==  2);
 
 def test_Dog():
     dog = Dog(name="Pluto",city="Walt",age=1930)

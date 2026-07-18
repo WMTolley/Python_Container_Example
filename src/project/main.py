@@ -1,13 +1,20 @@
+"""
+Main Function, example only
+"""
+
 import os
-from dotenv import load_dotenv
 import json
-from .Animals import Dog, Cat
+from dotenv import load_dotenv
+from .animals import Dog, Cat
 
 
-def isOdd(inputtedNumber):
-    return inputtedNumber%2 == 1
+def is_odd(inputted_number):
+    """
+    Returns whether the inputted number is odd
+    """ 
+    return inputted_number%2 == 1
 
-def firstPrime():
+def first_prime():
     with open('data/data.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
     return data["Primes"][0]
@@ -23,7 +30,7 @@ dog.get_name()
 
 
 # 1. Load the variables from the .env file
-load_dotenv() 
+load_dotenv()
 
 # 2. Access them using os.getenv()
 # Use a default value as a backup if the variable is missing
@@ -35,4 +42,3 @@ if api_key:
     print(f"Connected successfully with key: {api_key[:5]}...")
 else:
     print("Error: API_KEY not found!")
-

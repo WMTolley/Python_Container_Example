@@ -1,2 +1,4 @@
-from project.Animals.cat import Cat
-from project.Animals.dog import Dog
+"""Animals package initialization."""
+
+from project.animals.cat import Cat
+from project.animals.dog import Dog
