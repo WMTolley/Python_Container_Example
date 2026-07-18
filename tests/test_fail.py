@@ -1,4 +1,4 @@
-from project.animals import Cat
+from project.pets import Cat
 
 cat = Cat(name="Garfield",city="Davis",age=1978)
 

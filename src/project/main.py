@@ -5,7 +5,7 @@ Main Function, example only
 import os
 import json
 from dotenv import load_dotenv
-from .animals import Dog, Cat
+from .pets import Dog, Cat
 
 
 def is_odd(inputted_number):

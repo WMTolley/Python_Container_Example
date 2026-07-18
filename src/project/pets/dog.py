@@ -1,12 +1,11 @@
 """
-Part of the animals Module
-This contains the Cat class and its related animal values and functions.
+Part of the pets Module
+This contains the Dog class and its related pet values and functions.
 """
-
-class Cat:
+class Dog:
 
     """
-    Constructor for Cat Class
+    Constructor for Dog Class
     """
     def __init__(self, name: str, city: str, age: int):
         self.name = name      # Instance attribute
@@ -15,12 +14,9 @@ class Cat:
 
     def display_info(self) -> str:
         """
-        Outputs the values of the Cat Object
+        Outputs the values of the Dog Object
         """
         return f"{self.name} {self.city} {self.age}"
 
     def get_name(self) -> str:
-        """
-        Returns the name of the Cat Object
-        """
-        return f"Cat's name is {self.name}"
+        return f"Dog's name is {self.name}"

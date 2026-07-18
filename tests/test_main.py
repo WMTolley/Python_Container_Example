@@ -1,7 +1,7 @@
 import os
 # import pytest
 from project.main import is_odd, first_prime
-from project.animals import Cat, Dog
+from project.pets import Cat, Dog
 
 def test_env_loading():
     """Test if the environment variable is being read correctly."""

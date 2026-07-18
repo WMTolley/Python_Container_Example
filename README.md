@@ -37,7 +37,7 @@ Or Run `tree -a -f --charset=ascii`
 #### data/:  
     To store any *.csv, *.json, or database files  
 #### src/:  
-    Contains the actual project. Including the package named "animals" and the file "main.py" which  
+    Contains the actual project. Including the package named "pets" and the file "main.py" which  
     is where the project will start when running with `python -m src.project.main`  
 #### tests/:  
     Contains the tests of the project, separated since the client doesn't need them when the  
@@ -132,8 +132,8 @@ from the root directory.
     src/project/main.py:14:7: C0303: Trailing whitespace (trailing-whitespace)  
     src/project/main.py:17:0: C0116: Missing function or method docstring  
     (missing-function-docstring)  
-    ************* Module animals.dog  
-    src/project/animals/dog.py:21:4: C0116: Missing function or method docstring  
+    ************* Module pets.dog  
+    src/project/pets/dog.py:21:4: C0116: Missing function or method docstring  
     (missing-function-docstring)  
 #### At the bottom seperated by a horizontal line should be a rating of your code, for example:  
     Your code has been rated at 9.30/10 (previous run: 9.30/10, +0.00)  
