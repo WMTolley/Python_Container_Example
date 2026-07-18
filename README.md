@@ -3,6 +3,8 @@
 
 ## To Start Project:
 
+If you don't already have DockerDesktop, download it to your computer. (https://docs.docker.com/desktop/)   
+If using windows immedietely run `git stash` after cloning to reverse WindowOS's changes.  
 Open DockerDesktop  
 Press ctrl+shift+p  
 Click Dev Containers: Reopen in Container  
@@ -37,16 +39,13 @@ Or Run `tree -a -f --charset=ascii`
 #### data/:  
     To store any *.csv, *.json, or database files  
 #### src/:  
-    Contains the actual project. Including the package named "pets" and the file "main.py" which  
-    is where the project will start when running with `python -m src.project.main`  
+    Contains the actual project. Including the package named "pets" and the file "main.py" which is where the project will start when running with `python -m src.project.main`  
 #### tests/:  
-    Contains the tests of the project, separated since the client doesn't need them when the  
-    project is deployed.  
+    Contains the tests of the project, separated since the client doesn't need them when the project is deployed.  
 #### .env:  
     The Environmental Variables we are using and for security shouldn't be shared  
 #### .env.example:  
-    When the project is deployed this file will include all the necessary Environmental Variables  
-    the user will need to have in their .env file.  
+    When the project is deployed this file will include all the necessary Environmental Variables the user will need to have in their .env file.  
 #### .gitignore:  
     The files that shouldn't be shared when uploaded with git.  
 #### Dockerfile:  
@@ -69,15 +68,15 @@ Or Run `tree -a -f --charset=ascii`
 
 ## Troubleshooting:
 
-If you get the error: failed to connect to the docker API at npipe:////./pipe/  
+#### If you get the error: failed to connect to the docker API at npipe:////./pipe/  
 dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/  
 dockerDesktopLinuxEngine: The system cannot find the file specified.  
 Just opening the Docker Desktop application fixes this error.  
   
-In case you want to remove all python libraries to determine whats necessary I would recommend the  
-command `pip freeze | xargs pip uninstall -y`  
+#### In case you want to remove all python libraries to determine whats necessary I would recommend the command:
+`pip freeze | xargs pip uninstall -y`  
 
-If you ever need to redownload the python librarires:  
+#### If you ever need to redownload the python librarires:  
 While in the root/code directory  
 Run `pip install -r requirements.txt`  
 
@@ -101,11 +100,9 @@ While in the root/code directory
 Run either `make run` or `python -m src.project.main`  
 Should output "Connected successfully with key: sk_te..."  
 The letters after ":" depend on your environmental variables declared in .env  
-Showing that the container, python script, and ENV variables worked properly  
+This Shows that the container, python script, and ENV variables worked properly  
   
-Running this command with the -m flag ensures Python treats the project as a package. This properly  
-maps internal folders (modules), as well as allows relative and absolute imports to work seamlessly  
-from the root directory.  
+Running this command with the -m flag ensures Python treats the project as a package. This properly maps internal folders (modules), as well as allows relative and absolute imports to work seamlessly from the root directory.  
 
 ### To Test Project:
 #### While in the root/code directory  
@@ -126,8 +123,7 @@ from the root directory.
     If you wish to instead analyze the test files code run `pylint tests`  
     To instead output in the form of a JSON object to a file run:  
         `pylint --output-format=json . > pylint.coverage`  
-#### This should list the detected flaws for each file, also listing the line number of the problem,  
-#### which should look like (if there are any):  
+#### This should list the detected flaws for each file, also listing the line number of the problem, which should look like this (if there are any):  
     ************* Module main  
     src/project/main.py:14:7: C0303: Trailing whitespace (trailing-whitespace)  
     src/project/main.py:17:0: C0116: Missing function or method docstring  
@@ -149,8 +145,7 @@ from the root directory.
     The frowning face icon is how many mutants were created and never caught.  
     The muted icon is how many mutants with an invalid syntax were created.  
     The wizard icon is for more complex results.  
-#### To view the results run `mutmut results`, which should output a result like (if not all mutants  
-#### were caught):  
+#### To view the results run `mutmut results`, which should output a result like (if not all mutants were caught):  
     project.main.x_firstPrime__mutmut_3: survived  
     project.main.x_firstPrime__mutmut_5: survived  
     project.main.x_firstPrime__mutmut_6: survived  
@@ -195,6 +190,11 @@ from the root directory.
 by COMMAND  
 https://www.youtube.com/watch?v=Un2Nw00oL2s  
 https://www.youtube.com/@cmd_labs  
+
+"Docker Desktop"  
+by DockerDocs  
+https://docs.docker.com/desktop/  
+https://www.docker.com/products/docker-desktop/  
 
 "Developing in Python with Dev Containers — Part 1: Setup"  
 by Andy Pickup  
