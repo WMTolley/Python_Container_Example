@@ -55,7 +55,7 @@ Or Run `tree -a -f --charset=ascii`
     Automates frequent processes, using the `make` command-line tool.  
 #### pyproject.toml:  
     Configuration file for this python project. Included to support the mutmut tool.  
-#### README:  
+#### README.md:  
     What you are reading right now.  
 #### requirements.txt:  
     The libraries the user will need to install.  
@@ -98,7 +98,7 @@ Run `pip install -r requirements.txt`
 
 ### To Run Project:
 While in the root/code directory  
-Run `python -m src.project.main`  
+Run either `make run` or `python -m src.project.main`  
 Should output "Connected successfully with key: sk_te..."  
 The letters after ":" depend on your environmental variables declared in .env  
 Showing that the container, python script, and ENV variables worked properly  
@@ -125,7 +125,7 @@ from the root directory.
     Run `pylint src`  
     If you wish to instead analyze the test files code run `pylint tests`  
     To instead output in the form of a JSON object to a file run:  
-        pylint --output-format=json . > pylint.coverage  
+        `pylint --output-format=json . > pylint.coverage`  
 #### This should list the detected flaws for each file, also listing the line number of the problem,  
 #### which should look like (if there are any):  
     ************* Module main  
@@ -140,7 +140,7 @@ from the root directory.
 
 ### To Mutate Test:
 #### While in the root/code directory  
-#### Run `mutmut run`  
+#### Run `make mutate` or `mutmut run`  
 #### The terminal should show a count of 7 icons:  
     The party icon is how many mutants were created and caught.  
     The straight face icon is how many mutants were created and explicitly skipped.  
@@ -157,7 +157,7 @@ from the root directory.
     project.main.x_firstPrime__mutmut_8: survived  
     project.main.x_firstPrime__mutmut_12: survived  
 #### To examine the changes a specific mutant contained run `mutmut show <mutant id>`  
-    For example: `mutmut show project.main.x_firstPrime__mutmut_3`  
+    For example: `mutmut show project.main.x_first_prime__mutmut_3`  
 
 ### When Delivering:
 #### Libraries:  
